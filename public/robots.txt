@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mar-bud.malopolska.pl
+
+# Sitemaps
+Sitemap: https://mar-bud.malopolska.pl/sitemap.xml

@@ -16,7 +16,7 @@ type GalleryThumpProps = {
 const GalleryThumb: FunctionComponent<GalleryThumpProps> = ({ category }) => {
   return (
     <Link
-      href={getGalleryUrl(category)}
+      href={`${getGalleryUrl(category)}`}
       className={clsx(
         "relative flex w-full max-w-[210px] gap-4 flex-col-reverse group items-center"
       )}

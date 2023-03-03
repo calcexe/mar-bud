@@ -3,9 +3,6 @@ import Menu from "../components/Menu";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import Footer from "../components/Footer";
-import IconLocalization from "../images/icon_localization.png";
-import IconMail from "../images/icon_mail.png";
-import IconPhone from "../images/icon_phone.png";
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "../components/Link";
@@ -26,7 +23,9 @@ const Kontakt: NextPage = () => {
             <div className="gap-5 flex justify-center items-center">
               <div className="group flex gap-8 items-center min-w-fit">
                 <Image
-                  src={IconLocalization}
+                  src={"/images/icon_localization.png"}
+                  width={100}
+                  height={100}
                   alt=""
                   className={clsx(
                     "w-16 h-16 transition-transform",
@@ -46,7 +45,9 @@ const Kontakt: NextPage = () => {
             <div className="flex justify-center items-center">
               <div className="group flex gap-8 items-center min-w-fit">
                 <Image
-                  src={IconMail}
+                  src={"/images/icon_mail.png"}
+                  width={100}
+                  height={100}
                   alt=""
                   className={clsx(
                     "w-16 h-16 transition-transform",
@@ -74,7 +75,9 @@ const Kontakt: NextPage = () => {
             <div className="gap-5 flex justify-center items-center">
               <div className="group flex gap-8 items-center min-w-fit">
                 <Image
-                  src={IconPhone}
+                  src={"/images/icon_phone.png"}
+                  width={100}
+                  height={100}
                   alt=""
                   className={clsx(
                     "w-16 h-16 transition-transform",

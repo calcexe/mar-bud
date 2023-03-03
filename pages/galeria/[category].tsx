@@ -1,9 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Menu from "../../components/Menu";
 import Container from "../../components/Container";
 import { GalleryCategory } from "../../types/GalleryCategory";
 import Footer from "../../components/Footer";
-import clsx from "clsx";
 import Image from "next/image";
 import fs from "fs";
 import path from "path";
@@ -12,7 +10,6 @@ import "react-image-lightbox/style.css";
 import Link from "next/link";
 import { getGalleryTitle } from "../../helpers/gallery";
 import PageTitle from "../../components/PageTitle";
-import IconArrowLeft from "../../images/icon_arrow_left.png";
 import Navbar from "../../components/Navbar";
 import Head from "../../components/Head";
 
@@ -34,14 +31,20 @@ const Category: NextPage<GalleryCategoryProps> = (props) => {
             href="/galeria"
             className="text-white flex gap-2 items-center hover:text-[#08c]"
           >
-            <Image src={IconArrowLeft} alt="Wstecz" className="w-3 h-auto" />
+            <Image
+              src={"/images/icon_arrow_left.png"}
+              width={32}
+              height={32}
+              alt="Wstecz"
+              className="w-3 h-auto"
+            />
             Powrót
           </Link>
           <h2 className="self-center text-white">
             {getGalleryTitle(props.category)}
           </h2>
           <div>
-            <Gallery images={props.images} />
+            <Gallery images={props.images ?? []} />
           </div>
         </div>
       </Container>
@@ -52,22 +55,33 @@ const Category: NextPage<GalleryCategoryProps> = (props) => {
 };
 
 const getGalleryImages = (category: GalleryCategory) => {
-  const dirRelativeToPublicFolder = `images/${category}`;
-  const dir = path.resolve("./public", dirRelativeToPublicFolder);
-  const filenames = fs.readdirSync(dir);
-  const images = filenames.map((name) =>
-    path.join("/", dirRelativeToPublicFolder, name)
+  let count = 0;
+  switch (category) {
+    case GalleryCategory.ELEWACJE:
+      count = 22;
+      break;
+    case GalleryCategory.LAZIENKI:
+      count = 62;
+      break;
+    case GalleryCategory.KOMINKI:
+      count = 6;
+      break;
+    case GalleryCategory.ADAPTACJE:
+      count = 10;
+      break;
+  }
+  return Array.from(Array(count).keys(), (item) => item + 1).map(
+    (index) => `/images/${category}/${index}.jpg`
   );
-  return images;
 };
 
 export const getStaticProps: GetStaticProps = (context) => {
   const paramCategory = context.params?.category;
   const category = Object.entries(GalleryCategory).find(
     ([, value]) => value === paramCategory
-  )?.[1];
-  if (category !== undefined) {
-    const images = getGalleryImages(category) ?? [];
+  );
+  if (category) {
+    const images = getGalleryImages(category[1]) ?? [];
     return {
       props: {
         category,
@@ -87,7 +101,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   const paths = Object.values(GalleryCategory).map((category) => ({
     params: { category },
   }));
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export default Category;

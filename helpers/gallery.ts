@@ -10,8 +10,6 @@ export const getGalleryTitle = (category: GalleryCategory) => {
       return "Kominki";
     case GalleryCategory.LAZIENKI:
       return "Łazienki";
-    case GalleryCategory.WYKONCZENIA:
-      return "Wykończenia";
   }
 };
 
@@ -25,8 +23,6 @@ export const getGalleryThumb = (category: GalleryCategory) => {
     case GalleryCategory.KOMINKI:
       return `${baseUrl}/1.jpg`;
     case GalleryCategory.LAZIENKI:
-      return `${baseUrl}/1.jpg`;
-    case GalleryCategory.WYKONCZENIA:
       return `${baseUrl}/1.jpg`;
   }
 };

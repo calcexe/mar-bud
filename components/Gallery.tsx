@@ -16,7 +16,7 @@ const getImageUrl = (image: string) =>
       : "https://mar-bud.malopolska.pl"
   }${image}`;
 
-const Gallery: FunctionComponent<GalleryProps> = ({ images }) => {
+const Gallery: FunctionComponent<GalleryProps> = ({ images = [] }) => {
   const [page, setPage] = useState(0);
   const [currentImage, setCurrentImage] = useState(-1);
   const pagesCount = useMemo(

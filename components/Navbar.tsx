@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import Container from "./Container";
 import Menu from "./Menu";
-import Logo from "../images/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
   const [mobileVisible, setMobileVisible] = useState(false);
   return (
-    <div className="border-b-2 border-b-[#08c] md:sticky top-0 z-10">
-      <Container variant="gray">
+    <div className="border-b-2 border-b-[#08c] absolute left-0 right-0 md:sticky top-0 z-10">
+      <Container variant="gray" className="">
         <header className="min-h-[74px] h-[74px] flex-col md:flex-row md:h-20 flex md:items-center justify-between ">
           <div className="flex items-center flex-1">
             <div className="">
               <Link href="/" className="">
                 <Image
-                  src={Logo}
+                  src={"/images/logo.png"}
+                  height={56}
+                  width={56}
                   alt="Logo"
                   className="w-auto h-14 transition-transform hover:scale-95"
                 />

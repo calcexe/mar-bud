@@ -52,12 +52,14 @@ type MenuProps = {
 const Menu: FunctionComponent<MenuProps> = ({ mobileVisible }) => {
   return (
     <div className="justify-center items-center">
-      <AnimateHeight
-        className={clsx("md:hidden")}
-        height={mobileVisible ? "auto" : 0}
-      >
-        <BaseMenu />
-      </AnimateHeight>
+      <div className="bg-[#292929]">
+        <AnimateHeight
+          className={clsx("md:hidden")}
+          height={mobileVisible ? "auto" : 0}
+        >
+          <BaseMenu />
+        </AnimateHeight>
+      </div>
       <div className="hidden md:block">
         <BaseMenu />
       </div>
