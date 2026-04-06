@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React framework for server-side rendering and static site generation
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [clsx](https://github.com/lukeed/clsx) - Utility for conditionally constructing className strings
+- [react-animate-height](https://github.com/Stanko/react-animate-height) - Component for animating height transitions
+- [react-image-lightbox](https://github.com/frontend-collective/react-image-lightbox) - Lightbox component for displaying images
+- [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) - Sitemap generator for Next.js
+
 ## Getting Started
 
 First, run the development server:
